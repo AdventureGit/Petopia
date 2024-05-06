@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FFFFCF56">
         <TextBlock HorizontalAlignment="Left" Margin="267,32,0,0" TextWrapping="Wrap" Text="Petopia" VerticalAlignment="Top" Height="75" Width="276" TextAlignment="Center" FontSize="46" FontWeight="Bold" FontFamily="Segoe UI Black"/>
-        <TextBox HorizontalAlignment="Left" Margin="219,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Height="43" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Height="45" Margin="219,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="UsernameTbx" HorizontalAlignment="Left" Margin="219,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Height="43" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="PasswordTbx" HorizontalAlignment="Left" Height="45" Margin="219,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
         <Label Content="Account:" HorizontalAlignment="Left" Height="27" Margin="367,112,0,0" VerticalAlignment="Top" Width="76" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.469,3.291"/>
         <Label Content="Password:" HorizontalAlignment="Left" Height="27" Margin="367,213,0,0" VerticalAlignment="Top" Width="76" FontSize="14" FontWeight="Bold"/>
         <Button Content="Log In" HorizontalAlignment="Left" Height="45" Margin="329,349,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click" FontSize="17" FontWeight="Bold"/>

@@ -19,10 +19,12 @@ namespace Petopia
     /// </summary>
     public partial class SearchEdit : Window
     {
+        PetopiaLinkerDataContext _petDB = null;
         public SearchEdit()
         {
             InitializeComponent();
             InitializeItems();
+            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.PetopiaNewConnectionString);
         }
         private void InitializeItems()
         {

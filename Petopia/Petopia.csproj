@@ -58,6 +58,9 @@
     <Compile Include="Logs.xaml.cs">
       <DependentUpon>Logs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pets.xaml.cs">
+      <DependentUpon>Pets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchEdit.xaml.cs">
       <DependentUpon>SearchEdit.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SearchEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gettyimages-520337208-612x612.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

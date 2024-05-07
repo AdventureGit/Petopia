@@ -19,6 +19,7 @@ namespace Petopia
     /// </summary>
     public partial class AddItem : Window
     {
+        PetopiaLinkerDataContext _petDB = null;
         public AddItem()
         {
             InitializeComponent();

@@ -9,11 +9,12 @@
     <Grid Background="#FFFFCF56">
         <TextBlock HorizontalAlignment="Left" Margin="267,32,0,0" TextWrapping="Wrap" Text="Petopia" VerticalAlignment="Top" Height="75" Width="276" TextAlignment="Center" FontSize="46" FontWeight="Bold" FontFamily="Segoe UI Black"/>
         <TextBox x:Name="UsernameTbx" HorizontalAlignment="Left" Margin="219,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Height="43" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="PasswordTbx" HorizontalAlignment="Left" Height="45" Margin="219,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="PasswordTbx" HorizontalAlignment="Left" Height="45" Margin="219,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" TextChanged="PasswordTbx_TextChanged"/>
         <Label Content="Account:" HorizontalAlignment="Left" Height="27" Margin="367,112,0,0" VerticalAlignment="Top" Width="76" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.469,3.291"/>
         <Label Content="Password:" HorizontalAlignment="Left" Height="27" Margin="367,213,0,0" VerticalAlignment="Top" Width="76" FontSize="14" FontWeight="Bold"/>
         <Button Content="Log In" HorizontalAlignment="Left" Height="45" Margin="329,349,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click" FontSize="17" FontWeight="Bold"/>
         <CheckBox Content="" HorizontalAlignment="Left" Height="33" Margin="224,309,0,0" VerticalAlignment="Top" Width="44"/>
         <Label Content="remember me" HorizontalAlignment="Left" Height="33" Margin="246,301,0,0" VerticalAlignment="Top" Width="132" FontSize="14"/>
+        <Button  Name ="Signup" Content="Sign Up " Margin="364,404,356,10" Click="Signup_Click"/>
     </Grid>
 </Window>

@@ -58,6 +58,9 @@
     <Compile Include="Logs.xaml.cs">
       <DependentUpon>Logs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pets 2.xaml.cs">
+      <DependentUpon>Pets 2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pets.xaml.cs">
       <DependentUpon>Pets.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pets 2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +138,36 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="gettyimages-520337208-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gettyimages-520337208-612x612-Photoroom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images-Photoroom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="white-toy-poodle-sitting-isolated-700x700-Photoroom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Untitled Project.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Untitled Project %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Untitled Project %281%29 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Untitled Project %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Untitled Project %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Web_Photo_Editor.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

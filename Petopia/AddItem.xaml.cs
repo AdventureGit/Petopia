@@ -81,13 +81,13 @@ namespace Petopia
                     ComboType1.Items.Add("Cat");
                     ComboType2.Items.Add("Male");
                     ComboType2.Items.Add("Female");
-                    ComboType3.Items.Add("Adopted");
-                    ComboType3.Items.Add("Adoption");
+                    ComboType3.Items.Add("Active");
+                    ComboType3.Items.Add("Inactive");
                     ActivateItems();
                 }
                 else if (EntryTypeCombo.SelectedItem.ToString() == "Item")
                 {
-                    Tb1.Text = "Item Name:";
+                    Tb1.Text = "Pet Type:";
                     Tb2.Text = "Price:";
                     Tb3.Text = "Quantity:";
                     Tb4.Text = "Item Type:";
@@ -133,6 +133,7 @@ namespace Petopia
                     {
                         Item newItem = new Item
                         {
+
                             Item_ID = GenerateNextItemID(),
                             Item_Name = Tbx0.Text,
                             Item_Price = Convert.ToDecimal(Tbx1.Text),
@@ -212,20 +213,29 @@ namespace Petopia
 
         private string GetItemTypeID(string itemTypeName)
         {
-            var maxItemTypeID = (from itemType in _petDB.ItemTypes select itemType.ItemType_ID).Max();
-            int lastItemTypeNumber = int.Parse(maxItemTypeID.Substring(2));
-            int nextItemTypeNumber = lastItemTypeNumber + 1;
-            string nextItemTypeID = "IT" + nextItemTypeNumber.ToString("D3");
-            return nextItemTypeID;
+
+            if (itemTypeName.Equals("Food", StringComparison.OrdinalIgnoreCase))
+            {
+                return "IT001";
+            }
+            else if (itemTypeName.Equals("Accessory", StringComparison.OrdinalIgnoreCase))
+            {
+                return "IT002";
+            }
+            else
+            {
+                throw new ArgumentException("Invalid item type name.");
+            }
         }
+
 
         private string GetIsAdoptedID(string adoptionStatus)
         {
-            if (adoptionStatus.Equals("Adopted", StringComparison.OrdinalIgnoreCase))
+            if (adoptionStatus.Equals("Active", StringComparison.OrdinalIgnoreCase))
             {
                 return "ADO001";
             }
-            else if (adoptionStatus.Equals("Adoption", StringComparison.OrdinalIgnoreCase))
+            else if (adoptionStatus.Equals("Inactive", StringComparison.OrdinalIgnoreCase))
             {
                 return "ADO002";
             }
@@ -239,11 +249,11 @@ namespace Petopia
         {
             if (availabilityStatus.Equals("Available", StringComparison.OrdinalIgnoreCase))
             {
-                return "A001";
+                return "AV001";
             }
             else if (availabilityStatus.Equals("Unavailable", StringComparison.OrdinalIgnoreCase))
             {
-                return "A002";
+                return "AV002";
             }
             else
             {

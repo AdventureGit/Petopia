@@ -20,7 +20,8 @@ namespace Petopia
     public partial class AddItem : Window
     {
         PetopiaLinkerDataContext _petDB = null;
-        public AddItem()
+
+        public AddItem(string loggedInEmployeeID)
         {
             InitializeComponent();
             InitializeItems();
@@ -41,7 +42,6 @@ namespace Petopia
             Tb3.Visibility = Visibility.Visible;
             Tb4.Visibility = Visibility.Visible;
             Tb5.Visibility = Visibility.Visible;
-            Tb1.Visibility = Visibility.Visible;
             Tbx0.Visibility = Visibility.Visible;
             Tbx1.Visibility = Visibility.Visible;
             Tbx2.Visibility = Visibility.Visible;

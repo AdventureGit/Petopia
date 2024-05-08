@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PetopiaNew" Class="PetopiaLinkerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-828O4VC\SQLEXPRESS;Initial Catalog=PetopiaNew;Integrated Security=True" SettingsObjectName="Petopia.Properties.Settings" SettingsPropertyName="PetopiaNewConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Petopia_Updated" Class="PetopiaLinkerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-SKTT1JL\SQLEXPRESS;Initial Catalog=Petopia_Updated;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Petopia.Properties.Settings" SettingsPropertyName="Petopia_UpdatedConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Availability" Member="Availabilities">
     <Type Name="Availability">
       <Column Name="Availability_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Availability_Status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Availability_Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Availability_Item" Member="Items" ThisKey="Availability_ID" OtherKey="Availability_ID" Type="Item" />
     </Type>
   </Table>
@@ -29,8 +29,8 @@
     <Type Name="Item">
       <Column Name="Item_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Item_Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Item_Price" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Item_Quantity" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Item_Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Item_Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PetType_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="ItemType_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Availability_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
@@ -52,7 +52,7 @@
     <Type Name="Log">
       <Column Name="Logs_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Employee_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Log_Time" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Log_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LogStatus_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Association Name="Employee_Log" Member="Employee" ThisKey="Employee_ID" OtherKey="Employee_ID" Type="Employee" IsForeignKey="true" />
       <Association Name="LogStatus_Log" Member="LogStatus" ThisKey="LogStatus_ID" OtherKey="LogStatus_ID" Type="LogStatus" IsForeignKey="true" />
@@ -61,18 +61,18 @@
   <Table Name="dbo.LogStatus" Member="LogStatus">
     <Type Name="LogStatus">
       <Column Name="LogStatus_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="LogStatus_Type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LogStatus_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="LogStatus_Log" Member="Logs" ThisKey="LogStatus_ID" OtherKey="LogStatus_ID" Type="Log" />
     </Type>
   </Table>
   <Table Name="dbo.Pet" Member="Pets">
     <Type Name="Pet">
       <Column Name="Pet_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Pet_Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Pet_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="PetType_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Pet_Breed" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Pet_Weight" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Pet_Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Pet_Breed" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Pet_Weight" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Pet_Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="IsAdopted_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Employee_ID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Association Name="Employee_Pet" Member="Employee" ThisKey="Employee_ID" OtherKey="Employee_ID" Type="Employee" IsForeignKey="true" />

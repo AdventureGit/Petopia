@@ -23,7 +23,7 @@ namespace Petopia
         public Signup()
         {
             InitializeComponent();
-            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.PetopiaNewConnectionString);
+            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.Petopia_UpdatedConnectionString);
         }
 
         private void Username_TextChanged(object sender, TextChangedEventArgs e)

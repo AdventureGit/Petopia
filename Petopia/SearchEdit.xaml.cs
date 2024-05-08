@@ -24,7 +24,7 @@ namespace Petopia
         {
             InitializeComponent();
             InitializeItems();
-            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.PetopiaNewConnectionString);
+            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.Petopia_UpdatedConnectionString);
         }
         private void InitializeItems()
         {

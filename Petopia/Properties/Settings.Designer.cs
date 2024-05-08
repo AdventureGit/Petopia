@@ -26,11 +26,22 @@ namespace Petopia.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-SKTT1JL\\SQLEXPRESS;Initial Catalog=PetopiaNew;Integrated Secu" +
-            "rity=True")]
-        public string PetopiaNewConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-SKTT1JL\\SQLEXPRESS;Initial Catalog=Petopia_Updated;Integrated" +
+            " Security=True")]
+        public string Petopia_UpdatedConnectionString {
             get {
-                return ((string)(this["PetopiaNewConnectionString"]));
+                return ((string)(this["Petopia_UpdatedConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-SKTT1JL\\SQLEXPRESS;Initial Catalog=Petopia_Updated;Integrated" +
+            " Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string Petopia_UpdatedConnectionString1 {
+            get {
+                return ((string)(this["Petopia_UpdatedConnectionString1"]));
             }
         }
     }

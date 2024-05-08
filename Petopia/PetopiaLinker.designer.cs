@@ -22,7 +22,7 @@ namespace Petopia
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PetopiaNew")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Petopia_Updated")]
 	public partial class PetopiaLinkerDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,7 +60,7 @@ namespace Petopia
     #endregion
 		
 		public PetopiaLinkerDataContext() : 
-				base(global::Petopia.Properties.Settings.Default.PetopiaNewConnectionString, mappingSource)
+				base(global::Petopia.Properties.Settings.Default.Petopia_UpdatedConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -210,7 +210,7 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Availability_Status", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Availability_Status", DbType="NVarChar(50)")]
 		public string Availability_Status
 		{
 			get
@@ -618,9 +618,9 @@ namespace Petopia
 		
 		private string _Item_Name;
 		
-		private string _Item_Price;
+		private System.Nullable<decimal> _Item_Price;
 		
-		private string _Item_Quantity;
+		private System.Nullable<int> _Item_Quantity;
 		
 		private string _PetType_ID;
 		
@@ -646,9 +646,9 @@ namespace Petopia
     partial void OnItem_IDChanged();
     partial void OnItem_NameChanging(string value);
     partial void OnItem_NameChanged();
-    partial void OnItem_PriceChanging(string value);
+    partial void OnItem_PriceChanging(System.Nullable<decimal> value);
     partial void OnItem_PriceChanged();
-    partial void OnItem_QuantityChanging(string value);
+    partial void OnItem_QuantityChanging(System.Nullable<int> value);
     partial void OnItem_QuantityChanged();
     partial void OnPetType_IDChanging(string value);
     partial void OnPetType_IDChanged();
@@ -709,8 +709,8 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Price", DbType="NChar(10)")]
-		public string Item_Price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Price", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Item_Price
 		{
 			get
 			{
@@ -729,8 +729,8 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Quantity", DbType="NChar(10)")]
-		public string Item_Quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Quantity", DbType="Int")]
+		public System.Nullable<int> Item_Quantity
 		{
 			get
 			{
@@ -1126,7 +1126,7 @@ namespace Petopia
 		
 		private string _Employee_ID;
 		
-		private string _Log_Time;
+		private System.Nullable<System.DateTime> _Log_Time;
 		
 		private string _LogStatus_ID;
 		
@@ -1142,7 +1142,7 @@ namespace Petopia
     partial void OnLogs_IDChanged();
     partial void OnEmployee_IDChanging(string value);
     partial void OnEmployee_IDChanged();
-    partial void OnLog_TimeChanging(string value);
+    partial void OnLog_TimeChanging(System.Nullable<System.DateTime> value);
     partial void OnLog_TimeChanged();
     partial void OnLogStatus_IDChanging(string value);
     partial void OnLogStatus_IDChanged();
@@ -1199,8 +1199,8 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Log_Time", DbType="NChar(10)")]
-		public string Log_Time
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Log_Time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Log_Time
 		{
 			get
 			{
@@ -1380,7 +1380,7 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogStatus_Type", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogStatus_Type", DbType="NVarChar(50)")]
 		public string LogStatus_Type
 		{
 			get
@@ -1460,7 +1460,7 @@ namespace Petopia
 		
 		private string _Pet_Breed;
 		
-		private string _Pet_Weight;
+		private System.Nullable<decimal> _Pet_Weight;
 		
 		private string _Pet_Gender;
 		
@@ -1486,7 +1486,7 @@ namespace Petopia
     partial void OnPetType_IDChanged();
     partial void OnPet_BreedChanging(string value);
     partial void OnPet_BreedChanged();
-    partial void OnPet_WeightChanging(string value);
+    partial void OnPet_WeightChanging(System.Nullable<decimal> value);
     partial void OnPet_WeightChanged();
     partial void OnPet_GenderChanging(string value);
     partial void OnPet_GenderChanged();
@@ -1524,7 +1524,7 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Name", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Name", DbType="NVarChar(50)")]
 		public string Pet_Name
 		{
 			get
@@ -1568,7 +1568,7 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Breed", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Breed", DbType="NVarChar(50)")]
 		public string Pet_Breed
 		{
 			get
@@ -1588,8 +1588,8 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Weight", DbType="NChar(10)")]
-		public string Pet_Weight
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Weight", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Pet_Weight
 		{
 			get
 			{
@@ -1608,7 +1608,7 @@ namespace Petopia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Gender", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet_Gender", DbType="NVarChar(10)")]
 		public string Pet_Gender
 		{
 			get

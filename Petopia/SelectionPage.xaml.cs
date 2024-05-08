@@ -19,18 +19,20 @@ namespace Petopia
     /// </summary>
     public partial class SelectionPage : Window
     {
-        public SelectionPage()
+        private string loggedInEmployeeID;
+
+        public SelectionPage(string employeeID)
         {
             InitializeComponent();
+            loggedInEmployeeID = employeeID;
         }
 
         private void AddItemButton_Click(object sender, RoutedEventArgs e)
         {
-            AddItem addItem = new AddItem();
+            AddItem addItem = new AddItem(loggedInEmployeeID);
             addItem.Show();
             this.Close();
         }
-
         private void SearchEditButton_Click(object sender, RoutedEventArgs e)
         {
             SearchEdit searchEdit = new SearchEdit();

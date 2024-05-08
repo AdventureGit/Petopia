@@ -19,19 +19,31 @@ namespace Petopia
     /// </summary>
     public partial class AddItem : Window
     {
+        private string loggedInEmployeeID;
         PetopiaLinkerDataContext _petDB = null;
 
         public AddItem(string loggedInEmployeeID)
         {
             InitializeComponent();
             InitializeItems();
-            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.PetopiaNewConnectionString);
+            try
+            {
+                _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.Petopia_UpdatedConnectionString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while connecting to the database: {ex.Message}", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                // You might choose to handle this error further, like closing the window or disabling functionality.
+            }
 
+            // Store the logged-in Employee ID
+            this.loggedInEmployeeID = loggedInEmployeeID;
         }
+
         private void InitializeItems()
         {
             EntryTypeCombo.Items.Add("Pet");
-            EntryTypeCombo.Items.Add("Item");
+            // EntryTypeCombo.Items.Add("Item"); // Commented out for now
         }
 
         private void ActivateItems()
@@ -50,49 +62,195 @@ namespace Petopia
             ComboType3.Visibility = Visibility.Visible;
             AddItemBtn.Visibility = Visibility.Visible;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void EntryTypeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (EntryTypeCombo.SelectedItem.ToString() == "Pet")
+            if (EntryTypeCombo.SelectedItem != null)
             {
-                Tb1.Text = "Pet Type:";
-                Tb2.Text = "Breed:";
-                Tb3.Text = "Weight:";
-                Tb4.Text = "Gender:";
-                Tb5.Text = "Adoption Status:";
-                ComboType1.Items.Clear();
-                ComboType2.Items.Clear();
-                ComboType3.Items.Clear();
-                ComboType1.Items.Add("Dog");
-                ComboType1.Items.Add("Cat");
-                ComboType2.Items.Add("Male");
-                ComboType2.Items.Add("Female");
-                ComboType3.Items.Add("Adopted");
-                ComboType3.Items.Add("Not Adopted");
-                ActivateItems();
+                if (EntryTypeCombo.SelectedItem.ToString() == "Pet")
+                {
+                    Tb1.Text = "Pet Type:";
+                    Tb2.Text = "Breed:";
+                    Tb3.Text = "Weight:";
+                    Tb4.Text = "Gender:";
+                    Tb5.Text = "Adoption Status:";
+                    ComboType1.Items.Clear();
+                    ComboType2.Items.Clear();
+                    ComboType3.Items.Clear();
+                    ComboType1.Items.Add("Dog");
+                    ComboType1.Items.Add("Cat");
+                    ComboType2.Items.Add("Male");
+                    ComboType2.Items.Add("Female");
+                    ComboType3.Items.Add("Adopted");
+                    ComboType3.Items.Add("Not Adopted");
+                    ActivateItems();
+                }
+                else if (EntryTypeCombo.SelectedItem.ToString() == "Item")
+                {
+                    Tb1.Text = "Item Name:";
+                    Tb2.Text = "Price:";
+                    Tb3.Text = "Quantity:";
+                    Tb4.Text = "Item Type:";
+                    Tb5.Text = "Availability:";
+                    ComboType1.Items.Clear();
+                    ComboType2.Items.Clear();
+                    ComboType3.Items.Clear();
+                    ComboType1.Items.Add("Dog");
+                    ComboType1.Items.Add("Cat");
+                    ComboType2.Items.Add("Food");
+                    ComboType2.Items.Add("Accessories");
+                    ComboType3.Items.Add("Available");
+                    ComboType3.Items.Add("Unavailable");
+                    ActivateItems();
+                }
             }
-            else if (EntryTypeCombo.SelectedItem.ToString() == "Item")
+        }
+
+        private void AddItemBtn_Click(object sender, RoutedEventArgs e)
+        {   
+            try
             {
-                Tb1.Text = "Pet Type:";
-                Tb2.Text = "Price:";
-                Tb3.Text = "Quantity:";
-                Tb4.Text = "Item Type:";
-                Tb5.Text = "Availabilty:";
-                ComboType1.Items.Clear();
-                ComboType2.Items.Clear();
-                ComboType3.Items.Clear();
-                ComboType1.Items.Add("Dog");
-                ComboType1.Items.Add("Cat");
-                ComboType2.Items.Add("Food");
-                ComboType2.Items.Add("Accessories");
-                ComboType3.Items.Add("Available");
-                ComboType3.Items.Add("Unavailable");
-                ActivateItems();
+                if (EntryTypeCombo.SelectedItem != null)
+                {
+                    if (EntryTypeCombo.SelectedItem.ToString() == "Pet")
+                    {
+                        Pet newPet = new Pet
+                        {
+                            Pet_ID = GenerateNextPetID(),
+                            Pet_Name = Tbx0.Text,
+                            PetType_ID = GetPetTypeID(ComboType1.SelectedItem.ToString()),
+                            Pet_Breed = Tbx1.Text,
+                            Pet_Weight = Convert.ToDecimal(Tbx2.Text),
+                            Pet_Gender = ComboType2.SelectedItem.ToString(),
+                            IsAdopted_ID = GetIsAdoptedID(ComboType3.SelectedItem.ToString()),
+                            Employee_ID = loggedInEmployeeID
+                        };
+
+                        _petDB.Pets.InsertOnSubmit(newPet);
+                        _petDB.SubmitChanges();
+                    }
+                    else if (EntryTypeCombo.SelectedItem.ToString() == "Item")
+                    {
+                        Item newItem = new Item
+                        {
+                            Item_ID = GenerateNextItemID(),
+                            Item_Name = Tbx0.Text,
+                            Item_Price = Convert.ToDecimal(Tbx1.Text),
+                            Item_Quantity = Convert.ToInt32(Tbx2.Text),
+                            PetType_ID = GetPetTypeID(ComboType1.SelectedItem.ToString()),
+                            ItemType_ID = GetItemTypeID(ComboType2.SelectedItem.ToString()),
+                            Availability_ID = GetAvailabilityID(ComboType3.SelectedItem.ToString()),
+                            Employee_ID = loggedInEmployeeID
+                        };
+
+                        _petDB.Items.InsertOnSubmit(newItem);
+                        _petDB.SubmitChanges();
+                    }
+
+                    MessageBox.Show("Pet added successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Please select an entry type.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private string GenerateNextPetID()
+        {
+            var maxPetID = (from pet in _petDB.Pets select pet.Pet_ID).Max();
+
+            if (maxPetID != null)
+            {
+                int lastPetNumber = int.Parse(maxPetID.Substring(1));
+                int nextPetNumber = lastPetNumber + 1;
+                string nextPetID = "P" + nextPetNumber.ToString("D3");
+                return nextPetID;
+            }
+            else
+            {
+                return "P001";
+            }
+        }
+
+        private string GenerateNextItemID()
+        {
+            var maxItemID = (from item in _petDB.Items select item.Item_ID).Max();
+
+            if (maxItemID != null)
+            {
+                int lastItemNumber = int.Parse(maxItemID.Substring(1));
+                int nextItemNumber = lastItemNumber + 1;
+                string nextItemID = "I" + nextItemNumber.ToString("D3");
+                return nextItemID;
+            }
+            else
+            {
+                return "I001";
+            }
+        }
+
+        private string GetPetTypeID(string petTypeName)
+        {
+            if (petTypeName == "Cat")
+            {
+                return "PT001";
+            }
+            else if (petTypeName == "Dog")
+            {
+                return "PT002";
+            }
+            else
+            {
+                return "Unknown";
+            }
+        }
+
+        private string GetItemTypeID(string itemTypeName)
+        {
+            var maxItemTypeID = (from itemType in _petDB.ItemTypes select itemType.ItemType_ID).Max();
+            int lastItemTypeNumber = int.Parse(maxItemTypeID.Substring(2));
+            int nextItemTypeNumber = lastItemTypeNumber + 1;
+            string nextItemTypeID = "IT" + nextItemTypeNumber.ToString("D3");
+            return nextItemTypeID;
+        }
+
+        private string GetIsAdoptedID(string adoptionStatus)
+        {
+            if (adoptionStatus.Equals("Adopted", StringComparison.OrdinalIgnoreCase))
+            {
+                return "ADO001";
+            }
+            else if (adoptionStatus.Equals("Adopting", StringComparison.OrdinalIgnoreCase))
+            {
+                return "ADO002";
+            }
+            else
+            {
+                throw new ArgumentException("Invalid adoption status.");
+            }
+        }
+
+        private string GetAvailabilityID(string availabilityStatus)
+        {
+            if (availabilityStatus.Equals("Available", StringComparison.OrdinalIgnoreCase))
+            {
+                return "A001";
+            }
+            else if (availabilityStatus.Equals("Unavailable", StringComparison.OrdinalIgnoreCase))
+            {
+                return "A002";
+            }
+            else
+            {
+                throw new ArgumentException("Invalid availability status.");
             }
         }
     }
 }
+
+      

@@ -43,7 +43,7 @@ namespace Petopia
         private void InitializeItems()
         {
             EntryTypeCombo.Items.Add("Pet");
-            // EntryTypeCombo.Items.Add("Item"); // Commented out for now
+            EntryTypeCombo.Items.Add("Item");
         }
 
         private void ActivateItems()
@@ -82,7 +82,7 @@ namespace Petopia
                     ComboType2.Items.Add("Male");
                     ComboType2.Items.Add("Female");
                     ComboType3.Items.Add("Adopted");
-                    ComboType3.Items.Add("Not Adopted");
+                    ComboType3.Items.Add("Adoption");
                     ActivateItems();
                 }
                 else if (EntryTypeCombo.SelectedItem.ToString() == "Item")
@@ -107,7 +107,7 @@ namespace Petopia
         }
 
         private void AddItemBtn_Click(object sender, RoutedEventArgs e)
-        {   
+        {
             try
             {
                 if (EntryTypeCombo.SelectedItem != null)
@@ -147,7 +147,7 @@ namespace Petopia
                         _petDB.SubmitChanges();
                     }
 
-                    MessageBox.Show("Pet added successfully.");
+                    MessageBox.Show("Item added successfully.");
                 }
                 else
                 {
@@ -225,7 +225,7 @@ namespace Petopia
             {
                 return "ADO001";
             }
-            else if (adoptionStatus.Equals("Adopting", StringComparison.OrdinalIgnoreCase))
+            else if (adoptionStatus.Equals("Adoption", StringComparison.OrdinalIgnoreCase))
             {
                 return "ADO002";
             }
@@ -252,5 +252,3 @@ namespace Petopia
         }
     }
 }
-
-      

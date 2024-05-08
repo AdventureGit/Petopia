@@ -22,7 +22,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="58,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" FontWeight="Bold" FontSize="24" Height="40"><Run Text="ADD ITEM"/><LineBreak/><Run/></TextBlock>
         <TextBlock x:Name="Tb5" HorizontalAlignment="Left" Margin="378,279,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="25" Width="85" Visibility="Hidden"/>
         <ComboBox x:Name="ComboType3" HorizontalAlignment="Left" Margin="460,277,0,0" VerticalAlignment="Top" Width="129" Visibility="Hidden"/>
-        <Button x:Name="AddItemBtn" Content="Add Item" HorizontalAlignment="Left" Margin="335,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.171,0.056" Width="98" Height="25" Visibility="Hidden"/>
+        <Button x:Name="AddItemBtn" Content="Add Item" HorizontalAlignment="Left" Margin="335,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.171,0.056" Width="98" Height="25" Visibility="Hidden" Click="AddItemBtn_Click"/>
 
     </Grid>
 </Window>

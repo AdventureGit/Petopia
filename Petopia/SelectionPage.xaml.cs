@@ -27,6 +27,7 @@ namespace Petopia
             loggedInEmployeeID = employeeID;
         }
 
+
         private void AddItemButton_Click(object sender, RoutedEventArgs e)
         {
             AddItem addItem = new AddItem(loggedInEmployeeID);
@@ -35,7 +36,7 @@ namespace Petopia
         }
         private void SearchEditButton_Click(object sender, RoutedEventArgs e)
         {
-            SearchEdit searchEdit = new SearchEdit();
+            SearchEdit searchEdit = new SearchEdit(loggedInEmployeeID);
             searchEdit.Show();
             this.Close();
         }

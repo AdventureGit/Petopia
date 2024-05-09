@@ -6,9 +6,16 @@
         xmlns:local="clr-namespace:Petopia"
         mc:Ignorable="d"
         Title="SearchEdit" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFFFCF56">
         <TextBlock HorizontalAlignment="Left" Margin="58,107,0,0" TextWrapping="Wrap" Text="ENTRY TYPE:" VerticalAlignment="Top"/>
-        <ComboBox x:Name="EntryTypeCombo" HorizontalAlignment="Left" Margin="143,107,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EntryTypeCombo_SelectionChanged"/>
+        <ComboBox x:Name="EntryTypeCombo" HorizontalAlignment="Left" Margin="143,107,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EntryTypeCombo_SelectionChanged">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFFFF7F0" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
         <TextBlock x:Name="Tb0" HorizontalAlignment="Left" Margin="302,169,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="25" Width="45" Visibility="Hidden"/>
         <TextBox x:Name="Tbx0" HorizontalAlignment="Left" Margin="384,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="28" Visibility="Hidden"/>
         <TextBlock x:Name="Tb1" HorizontalAlignment="Left" Margin="302,227,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="26" Width="55" Visibility="Hidden"/>
@@ -20,13 +27,20 @@
         <ComboBox x:Name="ComboType1" HorizontalAlignment="Left" Margin="384,229,0,0" VerticalAlignment="Top" Width="129" Visibility="Hidden"/>
         <ComboBox x:Name="ComboType2" HorizontalAlignment="Left" Margin="619,227,0,0" VerticalAlignment="Top" Width="129" Visibility="Hidden"/>
         <TextBlock HorizontalAlignment="Left" Margin="58,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" FontWeight="Bold" FontSize="24" Height="40"><Run Text="SEARCH/EDIT ITEM"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="Tb5" HorizontalAlignment="Left" Margin="537,283,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="25" Width="85" Visibility="Hidden"/>
+        <TextBlock x:Name="Tb5" HorizontalAlignment="Left" Margin="533,283,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="47" Width="85" Visibility="Hidden"/>
         <ComboBox x:Name="ComboType3" HorizontalAlignment="Left" Margin="619,281,0,0" VerticalAlignment="Top" Width="129" Visibility="Hidden"/>
-        <Button x:Name="AddItemBtn" Content="Update Item" HorizontalAlignment="Left" Margin="482,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.171,0.056" Width="98" Height="25" Visibility="Hidden"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="58,189,562,59" SelectionChanged="ListBox_SelectionChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="58,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Height="26"/>
+        <Button x:Name="AddItemBtn" Content="Update Item" HorizontalAlignment="Left" Margin="482,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.171,0.056" Width="98" Height="25" Visibility="Hidden" Click="Update_Button"/>
+        <ListBox Name="ItemBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="58,189,562,59" SelectionChanged="ListBox_SelectionChanged" Background="#FFFFF7F0"/>
+        <TextBox HorizontalAlignment="Left" Margin="58,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Height="26" Background="#FFFFF7F0"/>
         <TextBlock x:Name="Tb1_Copy" HorizontalAlignment="Left" Margin="58,388,0,0" TextWrapping="Wrap" Text="Sort By:" VerticalAlignment="Top" Height="26" Width="55" Visibility="Visible" RenderTransformOrigin="0.571,0.828"/>
-        <ComboBox x:Name="ComboType1_Copy" HorizontalAlignment="Left" Margin="109,385,0,0" VerticalAlignment="Top" Width="129" Visibility="Visible"/>
+        <ComboBox x:Name="ComboType1_Copy" HorizontalAlignment="Left" Margin="109,385,0,0" VerticalAlignment="Top" Width="129" Visibility="Visible">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFFFF7F0" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
 
     </Grid>
 </Window>

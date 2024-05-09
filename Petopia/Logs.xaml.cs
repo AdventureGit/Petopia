@@ -19,9 +19,15 @@ namespace Petopia
     /// </summary>
     public partial class Logs : Window
     {
+        private PetopiaLinkerDataContext _petDB;
+
         public Logs()
         {
             InitializeComponent();
+            _petDB = new PetopiaLinkerDataContext(Properties.Settings.Default.Petopia_UpdatedConnectionString);
         }
     }
 }
+
+
+ 

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Petopia"
         mc:Ignorable="d"
         Title="SelectionPage" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="AddItemButton" Content="Add Item" HorizontalAlignment="Left" Margin="126,217,0,0" VerticalAlignment="Top" Height="67" Width="130" Click="AddItemButton_Click"/>
-        <Button x:Name="SearchEditButton" Content="Search/Edit Item" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="67" Width="130" Click="SearchEditButton_Click"/>
-        <Button x:Name="LogsButton" Content="Logs" HorizontalAlignment="Left" Margin="537,217,0,0" VerticalAlignment="Top" Height="67" Width="130" Click="LogsButton_Click"/>
+    <Grid Background="#FFFFCF56">
+        <Button x:Name="AddItemButton" Content="Add Item" HorizontalAlignment="Left" Margin="126,217,0,0" VerticalAlignment="Top" Height="67" Width="130" Click="AddItemButton_Click" Background="#FFFFF7F0"/>
+        <Button x:Name="SearchEditButton" Content="Search/Edit Item" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="67" Width="130" Click="SearchEditButton_Click" Background="#FFFFF7F0"/>
+        <Button x:Name="LogsButton" Content="Logs" HorizontalAlignment="Left" Margin="537,217,0,0" VerticalAlignment="Top" Height="67" Width="130" Click="LogsButton_Click" Background="#FFFFF7F0"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,143,0,0" TextWrapping="Wrap" Text="Please Select An Option:" VerticalAlignment="Top" Height="50" Width="236" TextAlignment="Center"/>
     </Grid>
 </Window>

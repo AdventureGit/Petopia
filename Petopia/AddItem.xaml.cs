@@ -33,10 +33,9 @@ namespace Petopia
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while connecting to the database: {ex.Message}", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                // You might choose to handle this error further, like closing the window or disabling functionality.
+              
             }
 
-            // Store the logged-in Employee ID
             this.loggedInEmployeeID = loggedInEmployeeID;
         }
 
@@ -89,6 +88,7 @@ namespace Petopia
                 {
                     Tb1.Text = "Pet Type:";
                     Tb2.Text = "Price:";
+
                     Tb3.Text = "Quantity:";
                     Tb4.Text = "Item Type:";
                     Tb5.Text = "Availability:";
@@ -214,11 +214,11 @@ namespace Petopia
         private string GetItemTypeID(string itemTypeName)
         {
 
-            if (itemTypeName.Equals("Food", StringComparison.OrdinalIgnoreCase))
+            if (itemTypeName.Equals("Food"))
             {
                 return "IT001";
             }
-            else if (itemTypeName.Equals("Accessory", StringComparison.OrdinalIgnoreCase))
+            else if (itemTypeName.Equals("Accessory"))
             {
                 return "IT002";
             }
@@ -231,11 +231,11 @@ namespace Petopia
 
         private string GetIsAdoptedID(string adoptionStatus)
         {
-            if (adoptionStatus.Equals("Active", StringComparison.OrdinalIgnoreCase))
+            if (adoptionStatus.Equals("Active"))
             {
                 return "ADO001";
             }
-            else if (adoptionStatus.Equals("Inactive", StringComparison.OrdinalIgnoreCase))
+            else if (adoptionStatus.Equals("Inactive"))
             {
                 return "ADO002";
             }
@@ -247,11 +247,11 @@ namespace Petopia
 
         private string GetAvailabilityID(string availabilityStatus)
         {
-            if (availabilityStatus.Equals("Available", StringComparison.OrdinalIgnoreCase))
+            if (availabilityStatus.Equals("Available"))
             {
                 return "AV001";
             }
-            else if (availabilityStatus.Equals("Unavailable", StringComparison.OrdinalIgnoreCase))
+            else if (availabilityStatus.Equals("Unavailable"))
             {
                 return "AV002";
             }
@@ -260,5 +260,16 @@ namespace Petopia
                 throw new ArgumentException("Invalid availability status.");
             }
         }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionPage selectionPage = new SelectionPage(loggedInEmployeeID);
+
+            selectionPage.Show();
+
+            this.Close();
+        }
+
     }
 }
+

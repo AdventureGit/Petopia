@@ -64,7 +64,7 @@ namespace Petopia
                                 where s.Employee_Username == UsernameTbx.Text
                                     && s.Employee_Password == PasswordTbx.Text
                                 select s;
-
+           
             foreach (var login in employeeLogin)
             {
                 Log newLog = new Log
@@ -93,6 +93,7 @@ namespace Petopia
 
             if (!loginSuccessful)
             {
+                //MessageBox.Show(PasswordBoxer.ToString());
                 MessageBox.Show("Incorrect username or password");
             }
         }

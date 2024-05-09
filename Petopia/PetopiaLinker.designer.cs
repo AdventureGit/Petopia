@@ -60,7 +60,7 @@ namespace Petopia
     #endregion
 		
 		public PetopiaLinkerDataContext() : 
-				base(global::Petopia.Properties.Settings.Default.Petopia_UpdatedConnectionString1, mappingSource)
+				base(global::Petopia.Properties.Settings.Default.Petopia_UpdatedConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

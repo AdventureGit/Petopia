@@ -8,9 +8,12 @@
         Title="Logs" Height="450" Width="800">
     <Grid Background="#FFFFCF56">
         <TextBlock HorizontalAlignment="Left" Margin="58,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" FontWeight="Bold" FontSize="24"><Run Text="EMPLOYEE LOGS"/><LineBreak/><Run/></TextBlock>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="176,116,176,116" Background="#FFFFF7F0">
+        <ListView x:Name="Logs_ListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="176,116,176,116" Background="#FFFFF7F0">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="Employee" DisplayMemberBinding="{Binding Path=EmployeeName}" Width="100"/>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Path=LogTime}" Width="100"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Path=LogStatusItem   }" Width="100"/>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
